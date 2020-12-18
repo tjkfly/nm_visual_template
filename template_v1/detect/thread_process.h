@@ -32,15 +32,20 @@ public:
     }
     void produce();
     void consumer();
+    void consumer_1();
     void serialResive();
 private:
     void imageProcess(const cv::Mat &image,cv::Mat &resultMat);
 public:
     std::deque<cv::Mat> m_MatQueue;
+    std::deque<cv::Mat> m_MatQueue1;
     int m_mat_num;
+    int m_mat_num1;
     //线程相关
     std::mutex m_mutex;
+    std::mutex m_mutex1;
     std::condition_variable m_threadCond;
+    std::condition_variable m_threadCond1;
     //结果图
     cv::Mat m_resultImg;
 private:
